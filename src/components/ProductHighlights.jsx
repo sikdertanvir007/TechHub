@@ -1,8 +1,9 @@
-import dbConnect from '@/lib/dbConnect';
+import dbConnect, { collectionNameObj } from '@/lib/dbConnect';
+import Link from 'next/link';
 import React from 'react';
 
 const ProductHighlights = async () => {
-    const productCollection = dbConnect("products");
+    const productCollection = dbConnect(collectionNameObj.productsCollection);
     const data = await productCollection.find({}).toArray();
 
     return (
@@ -17,7 +18,7 @@ const ProductHighlights = async () => {
                 </div>
                 
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    Premium Tech Collection
+                    Product Highlights
                 </h2>
                 
                 <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -68,12 +69,12 @@ const ProductHighlights = async () => {
                                         <span className="text-gray-500 text-sm">Starting price</span>
                                     </div>
                                     
-                                    <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center gap-2 group">
+                                    <Link href={`/products/${product._id}`}><button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center gap-2 group">
                                         <span>View Details</span>
                                         <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                                         </svg>
-                                    </button>
+                                    </button></Link>
                                 </div>
                             </div>
 
