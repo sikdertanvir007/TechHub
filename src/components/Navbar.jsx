@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Navbar = () => {
@@ -12,31 +13,48 @@ const Navbar = () => {
             </svg>
           </div>
           <ul tabIndex={0} className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-64 p-3 shadow-xl border border-gray-100">
+           <Link href="/products">
             <li>
+              
               <a className="text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-200">
                 Products
               </a>
+              
             </li>
+            </Link>
           </ul>
         </div>
         
         {/* Logo and Brand Name */}
-        <a className="flex items-center gap-3 text-white hover:text-gray-200 transition-colors duration-200 px-2">
-          <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
-            TechHub
-          </span>
-        </a>
+        <Link
+  href="/"
+  className="flex items-center gap-3 text-white hover:text-gray-200 transition-colors duration-200 px-2"
+>
+  <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">
+    <svg
+      className="w-6 h-6 text-white"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M13 10V3L4 14h7v7l9-11h-7z"
+      />
+    </svg>
+  </div>
+  <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
+    TechHub
+  </span>
+</Link>
       </div>
 
       {/* Desktop Navigation */}
       <div className="navbar-center hidden lg:flex">
         
-            
+            <Link href="/products">
               <div className="text-white hover:text-gray-200 hover:bg-white/20 rounded-lg font-medium px-4 py-2 transition-all duration-200 cursor-pointer">
                 <span className="flex items-center gap-2">
                  
@@ -44,7 +62,7 @@ const Navbar = () => {
                   
                 </span>
               </div>
-             
+             </Link>
             
           
       </div>
