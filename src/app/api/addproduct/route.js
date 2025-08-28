@@ -8,3 +8,9 @@ export const POST = async (req)=> {
     const result = await productCollection.insertOne(body);
     return NextResponse.json(result)
 }
+
+export const GET = async () => {
+  const productCollection = dbConnect(collectionNameObj.productsCollection);
+  const products = await productCollection.find({}).toArray();
+  return NextResponse.json(products);
+};

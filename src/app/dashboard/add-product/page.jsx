@@ -73,7 +73,7 @@ const AddProductPage = () => {
     };
 
     try {
-      const res = await fetch("https://techhub-nine.vercel.app/api/addproduct", {
+      const res = await fetch("/api/addproduct", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(productData),
